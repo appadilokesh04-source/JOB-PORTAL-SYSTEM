@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job Portal | Login</title>
+</head>
+<body style="background:#6572ea; text-align:center;">
+
+    <h1>Job Portal</h1>
+    <h3>Login</h3>
+
+    {% if message %}
+        <p style="color:red;">{{ message }}</p>
+    {% endif %}
+
+    <form action="/perform_login" method="post">
+        <label>Email</label><br>
+        <input type="email" name="User_email" required><br><br>
+
+        <label>Password</label><br>
+        <input type="password" name="User_password" required><br><br>
+
+        <input type="submit" value="Login">
+    </form>
+
+    <p>
+        Not registered?
+        <a href="{{ url_for('register_page') }}">Register Here</a>
+    </p>
+
+</body>
+</html>
+

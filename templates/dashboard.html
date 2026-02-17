@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+</head>
+<body style="text-align:center;">
+
+    <h1>Welcome {{ session.user_name }}</h1>
+
+    <form action="/search" method="post">
+        <input type="text" name="keyword" placeholder="Search Job">
+        <input type="submit" value="Search">
+    </form>
+
+    <h2>Available Jobs</h2>
+
+    <table border="1" align="center">
+        <tr>
+            <th>Title</th>
+            <th>Company</th>
+            <th>Location</th>
+            <th>Action</th>
+        </tr>
+
+        {% for job in jobs %}
+        <tr>
+            <td>{{ job.title }}</td>
+            <td>{{ job.company }}</td>
+            <td>{{ job.location }}</td>
+            <td>
+                <a href="/apply/{{ job.job_id }}">Apply</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>

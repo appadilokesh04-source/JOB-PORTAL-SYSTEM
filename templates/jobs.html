@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jobs</title>
+</head>
+<body style="text-align:center;">
+
+    <h1>Job Listings</h1>
+
+    <table border="1" align="center">
+        <tr>
+            <th>Title</th>
+            <th>Company</th>
+            <th>Location</th>
+            <th>Action</th>
+        </tr>
+
+        {% for job in jobs %}
+        <tr>
+            <td>{{ job.title }}</td>
+            <td>{{ job.company }}</td>
+            <td>{{ job.location }}</td>
+            <td>
+                <a href="/apply/{{ job.job_id }}">Apply</a>
+                |
+                <a href="/delete_application/{{ job.job_id }}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+    <a href="/dashboard">Back to Dashboard</a>
+
+</body>
+</html>
